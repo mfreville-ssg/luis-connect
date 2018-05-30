@@ -66,4 +66,4 @@ You can find the [luis-client repository][lcr1] and the luis-client package on [
    [md1]: <https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-get-started-create-app>
    [mlrr1]: <https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions>
    [lcsa1]: <https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f>
-   [lcr1]: <https://github.com/mfreville-ssg/luis-client>
+   [lcr1]: <https://github.com/mfreville/luis-client>
