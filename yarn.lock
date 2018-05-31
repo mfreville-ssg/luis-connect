@@ -1956,9 +1956,9 @@ lru-cache@^4.0.1, lru-cache@^4.1.2:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-luis-client@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/luis-client/-/luis-client-0.1.0.tgz#cb21b3698b07d2b3b523f4f3b0416eee60ed17eb"
+luis-client@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/luis-client/-/luis-client-0.1.4.tgz#ff8093feaaddfaf47a86f2c98ad98a028e297996"
 
 make-dir@^1.0.0:
   version "1.3.0"

@@ -5,8 +5,8 @@ const LUISClient = require('luis-client').default;
 const agent = require('./http');
 
 const client = new LUISClient({
-    appId: 'e9d5cd82-d975-4cd5-a85d-a074f147cef7',
-    appKey: 'c0e1fc027eb141d6ad2339c1872bd7a6',
+    appId: 'de16d583-c769-479a-a1d3-28893a7ba752',
+    appKey: 'ade07167940048de85cc25c02579086f',
     authoringKey: 'ade07167940048de85cc25c02579086f',
     verbose: 'true',
     region: 'westeurope',
@@ -27,12 +27,16 @@ const createIntent = intentName => client.createIntent(intentName);
 
 const getIntent = intentId => client.getIntent(intentId);
 
+const getIntents = () => client.getIntents();
+
 const renameIntent = (intentId, intentName) => client.renameIntent(intentId, intentName);
 
 const deleteIntent = intentId => client.deleteIntent(intentId);
 
 /********** UTTERANCES/EXAMPLES *************/
 const createUtterance = parameters => client.createUtterance(parameters);
+
+const createUtterances = parameters => client.createUtterances(parameters);
 
 const deleteUtterance = utteranceId => client.deleteUtterance(utteranceId);
 
@@ -42,6 +46,8 @@ const getUtterances = (skip, take) => client.getUtterances(skip, take);
 const createEntity = entityName => client.createEntity(entityName);
 
 const getEntity = entityId => client.getEntity(entityId);
+
+const getEntities = () => client.getEntities();
 
 const renameEntity = (entityId, entityName) => client.renameEntity(entityId, entityName);
 
@@ -53,12 +59,15 @@ module.exports = {
     getTrainingStatus,
     createIntent,
     getIntent,
+    getIntents,
     renameIntent,
     deleteIntent,
     createUtterance,
+    createUtterances,
     deleteUtterance,
     getUtterances,
     createEntity,
     getEntity,
+    getEntities,
     renameEntity,
     deleteEntity };

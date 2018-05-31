@@ -10,13 +10,16 @@ const {
     getTrainingStatus,
     createIntent,
     getIntent,
+    getIntents,
     renameIntent,
     deleteIntent,
     createUtterance,
+    createUtterances,
     getUtterances,
     deleteUtterance,
     createEntity,
     getEntity,
+    getEntities,
     renameEntity,
     deleteEntity
 } = require('../src/services/luis');
@@ -25,7 +28,7 @@ const {
 const v = new Validator();
 
 // Helpers
-const addUtteranceSchema = require('../src/helpers/jsonSchema.helper');
+const { addUtteranceSchema, addUtterancesSchema } = require('../src/helpers/jsonSchema.helper');
 
 
 // PREDICT
@@ -76,6 +79,15 @@ router.get('/intents/:id',(req, res) => {
         })
 });
 
+router.get('/intents',(req, res) => {
+    return getIntents()
+        .then(response => {
+            res.send(response.body);
+        }).catch(error => {
+            res.status(error.response.status).send(error.response.text);
+        })
+});
+
 router.put('/intents/:id',(req, res) => {
     return renameIntent(req.params.id, req.body.query)
         .then(response => {
@@ -95,9 +107,20 @@ router.delete('/intents/:id',(req, res) => {
 });
 
 // UTTERANCES
-router.post('/utterances',(req, res) => {
+router.post('/utterance',(req, res) => {
     if (v.validate(req.body, addUtteranceSchema)) {
         return createUtterance(req.body)
+            .then(response => {
+                res.send(response.body);
+            }).catch(error => {
+                res.status(error.response.status).send(error.response.text);
+            })
+    }
+});
+
+router.post('/utterances',(req, res) => {
+    if (v.validate(req.body, addUtterancesSchema)) {
+        return createUtterances(req.body)
             .then(response => {
                 res.send(response.body);
             }).catch(error => {
@@ -141,6 +164,15 @@ router.post('/entities/',(req, res) => {
 
 router.get('/entities/:id',(req, res) => {
     return getEntity(req.params.id)
+        .then(response => {
+            res.send(response.body);
+        }).catch(error => {
+            res.status(error.response.status).send(error.response.text);
+        })
+});
+
+router.get('/entities',(req, res) => {
+    return getEntities()
         .then(response => {
             res.send(response.body);
         }).catch(error => {

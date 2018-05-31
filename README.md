@@ -4,7 +4,7 @@ luis-connect is a sample How To Use the package npm [luis-client][lc1].
 
 Luis Connect contains :
   - Routes with calls to the luis-client sdk
-  - A [Postman][post1] export json file to test under ./helpers
+  - A [Postman][post1] export json file to test under ./assets
 
 # Installation
 
